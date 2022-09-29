@@ -394,12 +394,12 @@
       }
     })
     .to('.two', {
-      yPercent: 60,
+      yPercent: 90,
       opacity: 1,
       ease: "power1.in",
     })
     .to('.two', {
-      yPercent: -60,
+      yPercent: -90,
       opacity: 0,
       ease: "power1.out"
     });
@@ -417,12 +417,12 @@
       }
     })
     .to('.three', {
-      yPercent: 40,
+      yPercent: 90,
       opacity: 1,
       ease: "power1.in"
     })
     .to('.three', {
-      yPercent: -50,
+      yPercent: -90,
       opacity: 0,
       ease: "power1.out"
     });
@@ -455,11 +455,11 @@
       scrollTrigger: {
         trigger: '.five',
         start: "-=400px",
-        end: "-=100px",
+        end: "-=50px",
         pin: true,
         pinSpacing: false,
         scrub: 2,
-        markers: true
+        // markers: true
       }
     })
     .to('.five', {
@@ -470,7 +470,7 @@
     .to('.five', {
       yPercent: -200,
       opacity: 0,
-      ease: "power1.in"
+      ease: "power1.out"
     })
     </script>
 </body>
