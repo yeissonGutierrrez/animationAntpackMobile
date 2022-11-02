@@ -33,6 +33,10 @@
       color: white;
     }
 
+    body::-webkit-scrollbar{
+      display: none;
+    }
+
     #container, #scrollDist, .road {
       position:absolute;
       height: 1500px;
@@ -117,7 +121,7 @@
       align-items: center;
       flex-direction: column;
       font-size: 16px;
-      margin-top: 500px;
+      margin-bottom: 400px;
       margin-left: 50px;
     }
     .five > button {
@@ -153,6 +157,22 @@
 
     .panel {
       opacity: 0;
+    }
+
+
+    .anim1 {
+      min-width: 220px;
+      min-height: 200px;
+    }
+
+    .anim2 {
+      min-width: 220px;
+      min-height: 210px;
+    }
+
+    .anim3 {
+      min-width: 220px;
+      min-height: 160px;
     }
 
     
@@ -206,7 +226,7 @@
       </section>
 
       <section class="panel step five">
-        <button>CONTACT US</button>
+        <button onclick="sendMessage()">CONTACT US</button>
       </section>
     
     </div>
@@ -218,6 +238,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/MotionPathPlugin.min.js"></script>
 
     <script>
+
+      function sendMessage(){
+          let msg={toContact : "true"};
+          // In production, DO NOT use '*', use toe target domain
+          window.parent.postMessage(msg,'*')// childwin is the targetWindow
+          window.focus();
+      }
+
       gsap.registerPlugin(ScrollTrigger);
 
       // set initial states
@@ -325,22 +353,22 @@
       gsap.timeline({
       scrollTrigger: {
         trigger: '.five',
-        start: "+=250px",
-        end: "+=800px",
+        start: "-=400",
+        end: "+=600",
         pin: true,
         pinSpacing: false,
         scrub: 2,
-        // markers: true
+        markers: true
       }
     })
     .to('.five', {
-      yPercent: 1840,
-      opacity: 1,
+      yPercent: 1230,
+      opacity: 0,
       ease: "power1.in"
     })
     .to('.five', {
-      yPercent: -400,
-      opacity: 0,
+      yPercent: 400,
+      opacity: 1,
       ease: "power1.out"
     })
     </script>
