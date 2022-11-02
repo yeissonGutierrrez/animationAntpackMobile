@@ -39,9 +39,13 @@
 
     #container, #scrollDist, .road {
       position:absolute;
-      height: 1500px;
-      top: 100px;
+      height: 1100px;
       overflow: visible;
+    }
+    
+    .road {
+      top: 100px;
+      height: 1500px;
     }
 
     #container {
@@ -121,10 +125,12 @@
       align-items: center;
       flex-direction: column;
       font-size: 16px;
+      margin-top: -600px;
       margin-bottom: 400px;
       margin-left: 50px;
     }
     .five > button {
+      cursor: pointer;
       border-radius: 100px;
       outline: none;
       border-style: none;
@@ -249,7 +255,7 @@
       gsap.registerPlugin(ScrollTrigger);
 
       // set initial states
-      gsap.set('#scrollDist', {width:'100%', height:'1500px'})
+      gsap.set('#scrollDist', {width:'100%', height:'1100px'})
       gsap.set('#container', {position:'fixed', width:'100%', height:'1300px', transformOrigin:'0 0'})
       gsap.to('#container', {duration:1, opacity:1, ease:'power2.inOut', delay:0.3})
 
@@ -284,8 +290,8 @@
       gsap.timeline({
       scrollTrigger: {
         trigger: '.two',
-        start: "+=200px",
-        end: "+=340px",
+        start: "top",
+        end: "+=330",
         pin: true,
         pinSpacing: false,
         scrub: 2,
@@ -293,12 +299,12 @@
       }
     })
     .to('.two', {
-      yPercent: 50,
+      yPercent: 10,
       opacity: 1,
       ease: "power1.in",
     })
     .to('.two', {
-      yPercent: -80,
+      yPercent: -10,
       opacity: 0,
       ease: "power1.out"
     });
@@ -307,8 +313,8 @@
       gsap.timeline({
       scrollTrigger: {
         trigger: '.three',
-        start: "top",
-        end: "+=600px",
+        start: "-=200",
+        end: "+=450",
         pin: true,
         pinSpacing: false,
         scrub: 2,
@@ -316,12 +322,12 @@
       }
     })
     .to('.three', {
-      yPercent: 10,
+      yPercent: -40,
       opacity: 1,
       ease: "power1.in"
     })
     .to('.three', {
-      yPercent: -80,
+      yPercent: -50,
       opacity: 0,
       ease: "power1.out"
     });
@@ -330,8 +336,8 @@
       gsap.timeline({
       scrollTrigger: {
         trigger: '.four',
-        start: "top",
-        end: "+=580px",
+        start: "-=400px",
+        end: "+=540px",
         pin: true,
         pinSpacing: false,
         scrub: 2,
@@ -339,12 +345,12 @@
       }
     })
     .to('.four', {
-      yPercent: 0,
+      yPercent: -90,
       opacity: 1,
       ease: "power1.in"
     })
     .to('.four', {
-      yPercent: -40,
+      yPercent: -140,
       opacity: 0,
       ease: "power1.out"
     });
@@ -353,23 +359,22 @@
       gsap.timeline({
       scrollTrigger: {
         trigger: '.five',
-        start: "-=400",
-        end: "+=600",
+        start: "-=180px",
+        end: "+=780px",
         pin: true,
         pinSpacing: false,
         scrub: 2,
-        markers: true
+        // markers: true
       }
     })
     .to('.five', {
-      yPercent: 1230,
+      yPercent: 650,
       opacity: 0,
       ease: "power1.in"
     })
     .to('.five', {
-      yPercent: 400,
       opacity: 1,
-      ease: "power1.out"
+      ease: "power1.in"
     })
     </script>
 </body>
