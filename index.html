@@ -120,14 +120,13 @@
     }
     
     .five {
+      position: fixed;
+      bottom: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       font-size: 16px;
-      margin-top: -600px;
-      margin-bottom: 400px;
-      margin-left: 50px;
     }
     .five > button {
       cursor: pointer;
@@ -140,7 +139,7 @@
       font-family: 'Satoshi-Bold';
       font-size: 14px;
       color: white;
-      text-transform: uppercase;
+      text-transform: initial;
     }
 
     .step {
@@ -359,21 +358,23 @@
       gsap.timeline({
       scrollTrigger: {
         trigger: '.five',
-        start: "-=180px",
-        end: "+=880px",
+        start: "500px",
+        end: "700px",
         pin: true,
         pinSpacing: false,
-        scrub: 2,
-        // markers: true
+        scrub: 1,
+    // markers: true
       }
     })
     .to('.five', {
-      yPercent: 650,
       opacity: 0,
+      xPercent: 40,
       ease: "power1.in"
     })
     .to('.five', {
       opacity: 1,
+      yPercent: 540,
+      xPercent: 40,
       ease: "power1.in"
     })
     </script>
